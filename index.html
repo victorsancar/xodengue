@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Foco</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <div class="container">
+        <h1>Registrar Foco de Dengue</h1>
+
+        <div class="form-group">
+            <label for="foto">Foto do Foco (Opcional)</label>
+            <input type="file" id="foto" accept="image/*">
+            <button id="tirar-foto">Tirar Foto</button> </div>
+
+        <div class="form-group">
+            <label for="descricao">Descrição do Foco</label>
+            <textarea id="descricao" rows="4" placeholder="Descreva onde e o que você encontrou (ex: pneu com água no quintal)"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="localizacao">Localização</label>
+            <div id="localizacao-info">Localização atual: <span id="latitude"></span>, <span id="longitude"></span></div>
+            <button id="obter-localizacao">Obter Localização</button>
+            <input type="text" id="detalhe-localizacao" placeholder="Detalhe o local (ex: perto da lixeira)">
+        </div>
+
+        <button id="enviar-foco">Registrar Foco</button>
+    </div>
+
+    <script src="script.js"></script> </body>
+</html>
