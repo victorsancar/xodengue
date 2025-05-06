@@ -1,65 +1,141 @@
 body {
-    font-family: sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; /* Remover margens padrão do body */
+    background-color: #f8f9fa; /* Um tom de cinza claro */
+    display: flex;
+    justify-content: center; /* Centralizar o conteúdo horizontalmente */
+    align-items: center; /* Centralizar o conteúdo verticalmente (em telas maiores) */
+    min-height: 100vh; /* Garantir que o body ocupe pelo menos a altura da tela */
 }
 
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    width: 95%; /* Ocupar 95% da largura em telas menores */
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+    color: #28a745; /* Um tom de verde mais vibrante */
+    margin-bottom: 30px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
-    color: #555;
+    color: #495057; /* Um tom de cinza mais escuro */
 }
 
 input[type="file"],
 textarea,
-input[type="text"],
-button {
-    width: calc(100% - 12px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+input[type="text"] {
+    display: block;
+    width: calc(100% - 16px);
+    padding: 10px;
+    border: 1px solid #ced4da; /* Uma borda mais suave */
+    border-radius: 6px;
     box-sizing: border-box;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 16px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input[type="file"]:focus,
+textarea:focus,
+input[type="text"]:focus {
+    border-color: #28a745;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); /* Efeito de foco */
 }
 
 textarea {
     resize: vertical;
+    min-height: 100px;
 }
 
 button {
-    background-color: #5cb85c;
+    background-color: #28a745;
     color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    transition: background-color 0.15s ease-in-out;
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #1e7e34; /* Um tom de verde mais escuro ao passar o mouse */
 }
 
 #localizacao-info {
-    margin-bottom: 10px;
-    color: #777;
+    margin-bottom: 15px;
+    color: #6c757d; /* Um tom de cinza mais claro */
     font-size: 0.9em;
+}
+
+#obter-localizacao {
+    background-color: #007bff; /* Azul para ações de localização */
+    margin-right: 10px;
+}
+
+#obter-localizacao:hover {
+    background-color: #0056b3;
+}
+
+#tirar-foto {
+    background-color: #6c757d; /* Cinza para ações secundárias */
+}
+
+#tirar-foto:hover {
+    background-color: #5a6268;
+}
+
+.form-group > button {
+    width: auto; /* Ajustar largura dos botões dentro do form-group */
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Estilos para telas menores */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    input[type="file"],
+    textarea,
+    input[type="text"],
+    button {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .form-group > button {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
 }
