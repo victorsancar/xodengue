@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focos Registrados</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="foco.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Focos de Dengue Registrados</h1>
+
+        <section id="lista-focos">
+            <h2>Seus Registros</h2>
+            <ul id="focos-list">
+            </ul>
+            <p id="nenhum-foco" style="display:none;">Nenhum foco registrado ainda.</p>
+        </section>
+
+        <section id="mapa-focos">
+            <h2>Mapa de Áreas com Focos</h2>
+            <div id="mapa-container">
+                <img src="img/mapasaopaulo.jpg" alt="Mapa de São Paulo" style="width: 100%; border: 1px solid #ccc; border-radius: 8px;">
+            </div>
+            <p style="font-size: 0.8em; color: #777; margin-top: 10px;">* Mapa simulado mostrando áreas de possível foco.</p>
+        </section>
+
+        <button onclick="window.location.href='index.html'">Registrar Novo Foco</button>
+    </div>
+
+    <script src="foco.js"></script>
+</body>
+</html>

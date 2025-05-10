@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const obterLocalizacaoBotao = document.getElementById('obter-localizacao');
     const latitudeSpan = document.getElementById('latitude');
     const longitudeSpan = document.getElementById('longitude');
+    const tirarFotoBotao = document.getElementById('tirar-foto');
+    const inputFileFoto = document.getElementById('foto');
+    const enviarFocoBotao = document.getElementById('enviar-foco');
+    const descricaoInput = document.getElementById('descricao');
+    const detalheLocalizacaoInput = document.getElementById('detalhe-localizacao');
 
     obterLocalizacaoBotao.addEventListener('click', () => {
         if (navigator.geolocation) {
@@ -19,23 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const tirarFotoBotao = document.getElementById('tirar-foto');
-    const inputFileFoto = document.getElementById('foto');
-
     tirarFotoBotao.addEventListener('click', () => {
-        inputFileFoto.click(); // Simula o clique no input de arquivo
+        inputFileFoto.click();
     });
 
     inputFileFoto.addEventListener('change', (event) => {
         if (event.target.files && event.target.files[0]) {
             console.log('Foto selecionada:', event.target.files[0]);
-            // Aqui você poderia adicionar lógica para exibir uma prévia da imagem, se desejar.
         }
     });
-
-    const enviarFocoBotao = document.getElementById('enviar-foco');
-    const descricaoInput = document.getElementById('descricao');
-    const detalheLocalizacaoInput = document.getElementById('detalhe-localizacao');
 
     enviarFocoBotao.addEventListener('click', () => {
         const latitude = latitudeSpan.textContent;
@@ -44,23 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const detalheLocalizacao = detalheLocalizacaoInput.value;
         const foto = inputFileFoto.files[0];
 
-        console.log('Dados do Foco:');
-        console.log('Latitude:', latitude);
-        console.log('Longitude:', longitude);
-        console.log('Descrição:', descricao);
-        console.log('Detalhe da Localização:', detalheLocalizacao);
-        console.log('Foto:', foto);
+        const focoData = {
+            latitude: latitude,
+            longitude: longitude,
+            descricao: descricao,
+            detalheLocalizacao: detalheLocalizacao,
+            dataRegistro: new Date().toISOString(),
+            temFoto: !!foto
+        };
 
-        alert('Foco registrado (dados simulados no console)!');
+        let focos = localStorage.getItem('focosRegistrados');
+        focos = focos ? JSON.parse(focos) : [];
+        focos.push(focoData);
+        localStorage.setItem('focosRegistrados', JSON.stringify(focos));
 
-        // Aqui, em um aplicativo real, você enviaria esses dados para um servidor.
-        // Como estamos focando no front-end e no seu aprendizado de React,
-        // por enquanto, apenas exibimos os dados no console e um alerta.
+        alert('Foco registrado localmente!');
 
-        // Opcionalmente, podemos limpar os campos após o "envio".
         descricaoInput.value = '';
         detalheLocalizacaoInput.value = '';
-        inputFileFoto.value = ''; // Limpa o arquivo selecionado
+        inputFileFoto.value = '';
         latitudeSpan.textContent = '';
         longitudeSpan.textContent = '';
     });

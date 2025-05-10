@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Foco</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
 <body>
     <div class="container">
         <h1>Registrar Foco de Dengue</h1>
-
+        <p>Ajude a combater o mosquito da dengue registrando focos encontrados.</p>
         <div class="form-group">
             <label for="foto">Foto do Foco (Opcional)</label>
             <input type="file" id="foto" accept="image/*">
-            <button id="tirar-foto">Tirar Foto</button> </div>
+            <button id="tirar-foto">Tirar Foto</button>
+        </div>
 
         <div class="form-group">
             <label for="descricao">Descrição do Foco</label>
@@ -27,7 +30,9 @@
         </div>
 
         <button id="enviar-foco">Registrar Foco</button>
+        <button class="botao-foco-registrado"><a href="foco.html">Focos de Dengue Registrados</a></button>
     </div>
 
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>

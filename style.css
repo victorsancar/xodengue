@@ -1,119 +1,301 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0; /* Remover margens padrão do body */
-    background-color: #f8f9fa; /* Um tom de cinza claro */
+    font-family: 'Open Sans', sans-serif; /* Fonte moderna e limpa */
+    margin: 0;
+    background: linear-gradient(135deg, #e0f7fa, #c8e6c9); /* Gradiente suave de azul claro para verde claro */
     display: flex;
-    justify-content: center; /* Centralizar o conteúdo horizontalmente */
-    align-items: center; /* Centralizar o conteúdo verticalmente (em telas maiores) */
-    min-height: 100vh; /* Garantir que o body ocupe pelo menos a altura da tela */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333; /* Cor de texto mais neutra */
 }
 
 .container {
     max-width: 600px;
-    width: 95%; /* Ocupar 95% da largura em telas menores */
+    width: 95%;
     background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px; /* Aumentando o padding */
+    border-radius: 16px; /* Bordas mais arredondadas */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Sombra mais suave e moderna */
 }
 
 h1 {
     text-align: center;
-    color: #28a745; /* Um tom de verde mais vibrante */
-    margin-bottom: 30px;
+    color: #26a69a; /* Verde mais moderno */
+    margin-bottom: 35px;
+    font-weight: 700; /* Mais destaque */
+    letter-spacing: 0.5px; /* Pequeno espaçamento entre letras */
+}
+
+p {
+    text-align: center;
+    color: #555; /* Cor de texto mais neutra */
+    margin-bottom: 20px;
+    font-size: 1em; /* Aumentando o tamanho da fonte */
+    line-height: 1.6; /* Melhorando o espaçamento entre linhas */
+}
+
+/* h3 {
+    text-align: center;
+    color: #1e88e5; /* Azul mais tecnológico 
+    margin-bottom: 25px;
+    font-weight: 600;
+} */
+
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #495057; /* Um tom de cinza mais escuro */
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #555;
 }
 
 input[type="file"],
 textarea,
 input[type="text"] {
     display: block;
-    width: calc(100% - 16px);
-    padding: 10px;
-    border: 1px solid #ced4da; /* Uma borda mais suave */
-    border-radius: 6px;
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: 1px solid #b0bec5; /* Borda mais clara */
+    border-radius: 8px; /* Bordas mais arredondadas */
     box-sizing: border-box;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 16px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 input[type="file"]:focus,
 textarea:focus,
 input[type="text"]:focus {
-    border-color: #28a745;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); /* Efeito de foco */
+    border-color: #26a69a;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 166, 154, 0.25);
 }
 
 textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 120px;
 }
 
 button {
-    background-color: #28a745;
+    background-color: #26a69a; /* Verde moderno */
     color: white;
-    padding: 12px 20px;
+    padding: 14px 24px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.botao-foco-registrado{
+    font-weight: 600;
+    height: 3rem;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 2em;
+    background-color: #78909c; /* Cinza azulado neutro */background-color: #78909c; /* Cinza azulado neutro */
 }
 
 button:hover {
-    background-color: #1e7e34; /* Um tom de verde mais escuro ao passar o mouse */
+    background-color: #009688; /* Verde mais escuro ao passar o mouse */
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
 }
 
 #localizacao-info {
-    margin-bottom: 15px;
-    color: #6c757d; /* Um tom de cinza mais claro */
-    font-size: 0.9em;
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 0.95em;
 }
 
 #obter-localizacao {
-    background-color: #007bff; /* Azul para ações de localização */
-    margin-right: 10px;
+    background-color: #1e88e5; /* Azul tecnológico */
+    margin-right: 15px;
 }
 
 #obter-localizacao:hover {
-    background-color: #0056b3;
+    background-color: #1565c0;
 }
 
 #tirar-foto {
-    background-color: #6c757d; /* Cinza para ações secundárias */
+    background-color: #78909c; /* Cinza azulado neutro */
 }
 
 #tirar-foto:hover {
-    background-color: #5a6268;
+    background-color: #546e7a;
 }
 
 .form-group > button {
-    width: auto; /* Ajustar largura dos botões dentro do form-group */
+    width: auto;
     display: inline-block;
     margin-right: 10px;
+    margin-bottom: 10px; /* Espaçamento para telas menores */
+}
+
+/* Estilos específicos para a página de focos */
+#lista-focos {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e0f2f1; /* Verde bem claro */
+    border-radius: 12px;
+    border: 1px solid #b2dfdb;
+}
+
+#lista-focos h2 {
+    color: #26a69a;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #80cbc4;
+    padding-bottom: 8px;
+    text-align: left;
+}
+
+#focos-list {
+    list-style: none;
+    padding: 0;
+}
+
+#focos-list li {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+}
+
+#focos-list li:hover {
+    background-color: #f5f5f5;
+}
+
+#focos-list li img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 15px;
+    border-radius: 6px;
+}
+
+#focos-list li span {
+    flex-grow: 1;
+    color: #444;
+}
+
+#focos-list li .data-registro {
+    font-size: 0.85em;
+    color: #777;
+    margin-left: 15px;
+}
+
+#mapa-focos {
+    padding: 20px;
+    background-color: #e0f2f1;
+    border-radius: 12px;
+    border: 1px solid #b2dfdb;
+    margin-top: 20px;
+}
+
+#mapa-focos h2 {
+    color: #26a69a;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #80cbc4;
+    padding-bottom: 8px;
+    text-align: left;
+}
+
+#mapa-container {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden; /* Para conter marcadores se eles saírem */
+}
+
+#mapa-container img {
+    width: 100%;
+    display: block; /* Evita espaço extra abaixo da imagem */
+}
+
+.marcador-foco {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.8); /* Vermelho mais vibrante */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transform: translate(-50%, -50%); /* Centraliza o marcador */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.marcador-foco:hover::before {
+    content: attr(data-descricao);
+    position: absolute;
+    left: 15px;
+    top: -10px;
+    background-color: #333;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    z-index: 11;
+}
+
+#detalhe-foco {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f1f8e9; /* Verde bem claro */
+    border-radius: 12px;
+    border: 1px solid #dcedc8;
+}
+
+#detalhe-foco h3 {
+    color: #388e3c; /* Verde mais escuro */
+    margin-top: 0;
+    border-bottom: 2px solid #81c784;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#detalhe-foco p {
+    margin-bottom: 12px;
+    color: #555;
+}
+
+#detalhe-foco strong {
+    font-weight: 600;
+    color: #333;
 }
 
 /* Estilos para telas menores */
 @media (max-width: 480px) {
     .container {
-        padding: 20px;
-        border-radius: 8px;
+        padding: 30px;
+        border-radius: 12px;
     }
 
     h1 {
-        font-size: 1.8em;
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    h3 {
+        font-size: 1.5em;
         margin-bottom: 20px;
     }
 
@@ -122,20 +304,25 @@ button:hover {
     }
 
     label {
-        font-size: 1em;
+        font-size: 1.1em;
     }
 
     input[type="file"],
     textarea,
     input[type="text"],
     button {
-        font-size: 1em;
-        padding: 10px;
+        font-size: 1.1em;
+        padding: 12px;
+        border-radius: 6px;
     }
 
     .form-group > button {
         width: 100%;
         margin-bottom: 10px;
         margin-right: 0;
+    }
+
+    #localizacao-info {
+        font-size: 1em;
     }
 }
