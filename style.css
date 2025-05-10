@@ -35,6 +35,7 @@ p {
     margin-bottom: 20px;
     font-size: 1em; /* Aumentando o tamanho da fonte */
     line-height: 1.6; /* Melhorando o espaçamento entre linhas */
+    margin-left: -5%;
 }
 
 /* h3 {
@@ -136,7 +137,7 @@ button:hover {
     background-color: #546e7a;
 }
 
-.form-group > button {
+.form-group p > button {
     width: auto;
     display: inline-block;
     margin-right: 10px;
