@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Foco</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="foco.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -23,6 +24,20 @@
         </div>
 
         <div class="form-group">
+            <label for="categoria">Categoria do Foco</label>
+            <select id="categoria">
+                <option value="">Selecione a categoria</option>
+                <option value="pneu">Pneu</option>
+                <option value="vaso-planta">Vaso de Planta</option>
+                <option value="garrafa">Garrafa/Lata</option>
+                <option value="calha">Calha</option>
+                <option value="lona">Lona/Plástico</option>
+                <option value="piscina">Piscina (sem tratamento)</option>
+                <option value="outro">Outro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
             <label for="localizacao">Localização</label>
             <div id="localizacao-info">Localização atual: <span id="latitude"></span>, <span id="longitude"></span></div>
             <button id="obter-localizacao">Obter Localização</button>
@@ -30,7 +45,31 @@
         </div>
 
         <button id="enviar-foco">Registrar Foco</button>
-        <button class="botao-foco-registrado"><a href="foco.html">Focos de Dengue Registrados</a></button>
+        <a href="foco.html"><button class="botao-foco-registrado">Focos de Dengue Registrados</button></a>
+
+        <section id="lembretes-section">
+            <h2>Lembretes de Verificação</h2>
+            <div class="form-group">
+                <label for="local-lembrete">Local a verificar</label>
+                <input type="text" id="local-lembrete" placeholder="Ex: Meu quintal, Varanda">
+            </div>
+            <div class="form-group">
+                <label for="frequencia-lembrete">Frequência</label>
+                <select id="frequencia-lembrete">
+                    <option value="diario">Diário</option>
+                    <option value="semanal">Semanal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hora-lembrete">Hora do Lembrete</label>
+                <input type="time" id="hora-lembrete">
+            </div>
+            <button id="adicionar-lembrete">Adicionar Lembrete</button>
+
+            <h3>Meus Lembretes</h3>
+            <ul id="lista-lembretes">
+                </ul>
+        </section>
     </div>
 
     <script src="script.js"></script>

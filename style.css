@@ -134,6 +134,7 @@ button:hover {
 }
 
 #tirar-foto:hover {
+    
     background-color: #546e7a;
 }
 
@@ -281,6 +282,96 @@ button:hover {
 #detalhe-foco strong {
     font-weight: 600;
     color: #333;
+}
+
+#lembretes-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f1f8e9;
+    border-radius: 12px;
+    border: 1px solid #dcedc8;
+}
+
+#lembretes-section h2 {
+    color: #388e3c;
+    margin-top: 0;
+    border-bottom: 2px solid #81c784;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+#lembretes-section .form-group {
+    margin-bottom: 15px;
+}
+
+#lembretes-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+#lembretes-section input[type="text"],
+#lembretes-section select,
+#lembretes-section input[type="time"] {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #b0bec5;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#lembretes-section button {
+    background-color: #388e3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#lembretes-section button:hover {
+    background-color: #2e7d32;
+}
+
+#lista-lembretes {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+#lista-lembretes li {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#lista-lembretes li span {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#lista-lembretes li button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+#lista-lembretes li button:hover {
+    background-color: #b71c1c;
 }
 
 /* Estilos para telas menores */
