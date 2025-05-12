@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const descricaoInput = document.getElementById('descricao');
     const detalheLocalizacaoInput = document.getElementById('detalhe-localizacao');
     const categoriaSelect = document.getElementById('categoria'); // Obtenha o elemento select de categoria
+    const descricaoContainer = document.getElementById('descricao-container'); // Obtenha o container da descrição
+
+    // Funcionalidade para mostrar/ocultar a descrição com base na categoria
+    categoriaSelect.addEventListener('change', () => {
+        if (categoriaSelect.value === 'outro') {
+            descricaoContainer.style.display = 'block';
+        } else {
+            descricaoContainer.style.display = 'none';
+        }
+    });
 
     // Funcionalidade de obter localização
     obterLocalizacaoBotao.addEventListener('click', () => {
@@ -71,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         latitudeSpan.textContent = '';
         longitudeSpan.textContent = '';
         categoriaSelect.value = ''; // Reseta a seleção da categoria
+        descricaoContainer.style.display = 'none'; // Oculta a descrição após o registro
     });
 
     // Elementos para lembretes
@@ -133,19 +144,30 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(() => {
             const now = new Date();
             const horaAtual = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-            const diaSemana = now.getDay(); // 0 (Domingo) - 6 (Sábado)
+            const diaSemana = now.getDay();
+
+            console.log('Hora atual:', horaAtual);
+            console.log('Dia da semana atual (0-6):', diaSemana);
+            console.log('Lembretes carregados:', lembretes);
 
             lembretes.forEach(lembrete => {
+                console.log('Lembrete:', lembrete);
                 if (lembrete.hora === horaAtual) {
+                    console.log('Hora do lembrete corresponde à hora atual.');
                     if (lembrete.frequencia === 'diario' || (lembrete.frequencia === 'semanal' && diaSemana === now.getDay())) {
+                        console.log('Frequência corresponde.');
                         if (Notification.permission === 'granted') {
+                            console.log('Permissão de notificação concedida. Exibindo notificação.');
                             new Notification('Xô Dengue!', {
                                 body: `Lembrete para verificar: ${lembrete.local}`,
-                                icon: 'icone-notificacao.png' // Opcional: um ícone para a notificação
+                                icon: 'icone-notificacao.png'
                             });
-                        } else if (Notification.permission !== 'denied') {
+                        } else {
+                            console.log('Permissão de notificação não concedida.');
                             Notification.requestPermission().then(permission => {
+                                console.log('Resultado da solicitação de permissão:', permission);
                                 if (permission === 'granted') {
+                                    console.log('Permissão concedida após solicitação. Exibindo notificação.');
                                     new Notification('Xô Dengue!', {
                                         body: `Lembrete para verificar: ${lembrete.local}`,
                                         icon: 'icone-notificacao.png'
@@ -153,11 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
                                 }
                             });
                         }
+                    } else {
+                        console.log('Frequência não corresponde.');
                     }
+                } else {
+                    console.log('Hora do lembrete não corresponde à hora atual.');
                 }
             });
-        }, 60000); // Verifica a cada minuto
+        }, 60000);
     }
-
     agendarLembretes(); // Inicia o agendamento de lembretes
 });

@@ -12,6 +12,20 @@
     <div class="container">
         <h1>Focos de Dengue Registrados</h1>
 
+        <div class="filtro-focos">
+            <label for="filtro-categoria">Filtrar por Categoria:</label>
+            <select id="filtro-categoria">
+                <option value="">Todas as Categorias</option>
+                <option value="pneu">Pneu</option>
+                <option value="vaso-planta">Vaso de Planta</option>
+                <option value="garrafa">Garrafa/Lata</option>
+                <option value="calha">Calha</option>
+                <option value="lona">Lona/Plástico</option>
+                <option value="piscina">Piscina (sem tratamento)</option>
+                <option value="outro">Outro</option>
+            </select>
+        </div>
+
         <section id="lista-focos">
             <h2>Seus Registros</h2>
             <ul id="focos-list">
@@ -36,9 +50,11 @@
             </div>
             <p style="font-size: 0.8em; color: #777; margin-top: 10px;">* Mapa simulado mostrando áreas de possível foco.</p>
         </section>
+
+        <button id="compartilhar-dados">Compartilhar Dados</button>
         <button onclick="window.location.href='index.html'">Registrar Novo Foco</button>
     </div>
 
     <script src="foco.js"></script>
 </body>
-</html>
+</html> 

@@ -106,14 +106,13 @@ button {
     width: 100%;
     border-radius: 8px;
     margin-top: 2em;
-    background-color: #78909c; /* Cinza azulado neutro */background-color: #78909c; /* Cinza azulado neutro */
 }
 
 button:hover {
     background-color: #009688; /* Verde mais escuro ao passar o mouse */
     transform: translateY(-2px); /* Pequeno efeito de elevação */
 }
-
+ 
 #localizacao-info {
     margin-bottom: 20px;
     color: #777;
@@ -293,7 +292,7 @@ button:hover {
 }
 
 #lembretes-section h2 {
-    color: #388e3c;
+     color: #26a69a; /* Verde mais moderno */
     margin-top: 0;
     border-bottom: 2px solid #81c784;
     padding-bottom: 8px;
