@@ -144,30 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(() => {
             const now = new Date();
             const horaAtual = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-            const diaSemana = now.getDay();
-
-            console.log('Hora atual:', horaAtual);
-            console.log('Dia da semana atual (0-6):', diaSemana);
-            console.log('Lembretes carregados:', lembretes);
+            const diaSemana = now.getDay(); // 0 (Domingo) - 6 (Sábado)
 
             lembretes.forEach(lembrete => {
-                console.log('Lembrete:', lembrete);
                 if (lembrete.hora === horaAtual) {
-                    console.log('Hora do lembrete corresponde à hora atual.');
                     if (lembrete.frequencia === 'diario' || (lembrete.frequencia === 'semanal' && diaSemana === now.getDay())) {
-                        console.log('Frequência corresponde.');
                         if (Notification.permission === 'granted') {
-                            console.log('Permissão de notificação concedida. Exibindo notificação.');
                             new Notification('Xô Dengue!', {
                                 body: `Lembrete para verificar: ${lembrete.local}`,
-                                icon: 'icone-notificacao.png'
+                                icon: 'icone-notificacao.png' // Opcional: um ícone para a notificação
                             });
-                        } else {
-                            console.log('Permissão de notificação não concedida.');
+                        } else if (Notification.permission !== 'denied') {
                             Notification.requestPermission().then(permission => {
-                                console.log('Resultado da solicitação de permissão:', permission);
                                 if (permission === 'granted') {
-                                    console.log('Permissão concedida após solicitação. Exibindo notificação.');
                                     new Notification('Xô Dengue!', {
                                         body: `Lembrete para verificar: ${lembrete.local}`,
                                         icon: 'icone-notificacao.png'
@@ -175,14 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                 }
                             });
                         }
-                    } else {
-                        console.log('Frequência não corresponde.');
                     }
-                } else {
-                    console.log('Hora do lembrete não corresponde à hora atual.');
                 }
             });
-        }, 60000);
+        }, 60000); // Verifica a cada minuto
     }
+
     agendarLembretes(); // Inicia o agendamento de lembretes
 });

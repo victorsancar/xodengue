@@ -1,0 +1,144 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f0f8f7; /* Um verde bem claro e suave */
+    margin: 20px;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container-orientacoes {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 40px; /* Aumentando o padding interno */
+    background-color: #fff;
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+}
+
+h1 {
+    color: #26a69a; /* Verde moderno e vibrante para o título principal */
+    text-align: center;
+    margin-bottom: 40px; /* Mais espaço abaixo do título */
+    font-size: 2.5em; /* Título maior */
+}
+
+.secao-orientacao {
+    margin-bottom: 40px; /* Mais espaçamento entre as seções */
+    border-bottom: 2px solid #e0f2f1; /* Borda mais visível */
+    padding-bottom: 30px;
+}
+
+.secao-orientacao:last-child {
+    border-bottom: none;
+}
+
+.secao-orientacao h2, .secao-orientacao h3 {
+    color: #26a69a; /* Verde moderno para os subtítulos */
+    margin-top: 30px; /* Mais espaço acima dos subtítulos */
+    margin-bottom: 20px;
+}
+
+.secao-orientacao h2 {
+    font-size: 1.8em;
+}
+
+.secao-orientacao h3 {
+    font-size: 1.4em;
+    color: #4db6ac; /* Um tom um pouco mais claro de verde para sub-subtítulos */
+    margin-top: 25px;
+}
+
+ul {
+    list-style: none; /* Removendo os marcadores padrão */
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+ul li::before {
+    content: "\2022"; /* Adicionando um marcador bolinha estilizado */
+    color: #26a69a;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+li {
+    margin-bottom: 12px;
+    color: #555;
+}
+
+p {
+    line-height: 1.7; /* Melhor espaçamento entre as linhas */
+    margin-bottom: 20px;
+    color: #555;
+}
+
+strong {
+    color: #26a69a; /* Destacando o texto importante com a cor principal */
+    font-weight: 600;
+}
+
+button {
+    background-color: #26a69a;
+    color: #fff;
+    border: none;
+    padding: 12px 24px; /* Botões maiores */
+    border-radius: 8px; /* Bordas mais arredondadas nos botões */
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-right: 15px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #218a80;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.tipos-dengue h3 {
+    margin-top: 30px; /* Mais espaçamento para este subtítulo */
+    color: #2c3e50; /* Mudando a cor para um azul escuro para diferenciar */
+}
+
+.lista-sorotipos-descricao {
+    padding-left: 0;
+    list-style: none;
+}
+
+.item-sorotipo {
+    display: flex; /* Usando Flexbox */
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start; /* Alinha os itens ao topo */
+}
+
+.item-sorotipo strong {
+    color: #26a69a;
+    font-size: 1.2em;
+    width: 80px; /* Largura fixa para o "DENV-X:" */
+    flex-shrink: 0; /* Impede que o strong encolha */
+}
+
+.item-sorotipo span {
+    color: #555;
+    flex-grow: 1; /* Permite que a descrição ocupe o espaço restante */
+    word-wrap: break-word; /* Garante quebras de palavras longas */
+}
+
+.lista-detalhes-gerais {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.lista-detalhes-gerais li {
+    margin-bottom: 10px;
+    color: #555;
+}

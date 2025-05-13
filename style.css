@@ -100,7 +100,17 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.botao-foco-registrado{
+.botao-foco-registrado, #tirar-foto, #obter-localizacao, #enviar-foco{
+    font-weight: 600;
+    height: 3rem;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 2em;
+}
+
+.botao-orientacoes{
+    background-color: #009688; /* Verde mais escuro ao passar o mouse */
+    color: white;
     font-weight: 600;
     height: 3rem;
     width: 100%;
@@ -119,23 +129,24 @@ button:hover {
     font-size: 0.95em;
 }
 
-#obter-localizacao {
-    background-color: #1e88e5; /* Azul tecnológico */
+/* #obter-localizacao {
+    background-color: #1e88e5; /* Azul tecnológico 
     margin-right: 15px;
-}
+ */
 
 #obter-localizacao:hover {
-    background-color: #1565c0;
+    background-color: #009688; /* Verde mais escuro ao passar o mouse */
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
 }
 
-#tirar-foto {
-    background-color: #78909c; /* Cinza azulado neutro */
-}
+/* #tirar-foto {
+    background-color: #78909c; /* Cinza azulado neutro 
+} */
 
-#tirar-foto:hover {
+ /* {
     
-    background-color: #546e7a;
-}
+    /* background-color: #546e7a; */
+*/
 
 .form-group p > button {
     width: auto;
@@ -292,7 +303,7 @@ button:hover {
 }
 
 #lembretes-section h2 {
-     color: #26a69a; /* Verde mais moderno */
+    color: #26a69a; /* Verde mais moderno */
     margin-top: 0;
     border-bottom: 2px solid #81c784;
     padding-bottom: 8px;
@@ -324,7 +335,7 @@ button:hover {
 }
 
 #lembretes-section button {
-    background-color: #388e3c;
+    background-color: #26a69a; /* Verde moderno */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -334,8 +345,17 @@ button:hover {
     transition: background-color 0.2s ease-in-out;
 }
 
+#adicionar-lembrete {
+    font-weight: 600;
+    height: 3rem;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 2em;
+}
+
 #lembretes-section button:hover {
-    background-color: #2e7d32;
+   background-color: #009688; /* Verde mais escuro ao passar o mouse */
+   transform: translateY(-2px); /* Pequeno efeito de elevação */
 }
 
 #lista-lembretes {
@@ -371,7 +391,34 @@ button:hover {
 
 #lista-lembretes li button:hover {
     background-color: #b71c1c;
+
 }
+
+/* pagina orientações da dengue */
+
+.container-orientacoes {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .secao-orientacao {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .secao-orientacao h2, .secao-orientacao h3 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .secao-orientacao:last-child {
+            border-bottom: none;
+        }
 
 /* Estilos para telas menores */
 @media (max-width: 480px) {

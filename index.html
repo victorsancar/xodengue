@@ -19,11 +19,6 @@
         </div>
 
         <div class="form-group">
-            <label for="descricao">Descrição do Foco</label>
-            <textarea id="descricao" rows="4" placeholder="Descreva onde e o que você encontrou (ex: pneu com água no quintal)"></textarea>
-        </div>
-
-        <div class="form-group">
             <label for="categoria">Categoria do Foco</label>
             <select id="categoria">
                 <option value="">Selecione a categoria</option>
@@ -37,6 +32,13 @@
             </select>
         </div>
 
+        <div id="descricao-container" style="display: none;"> <!- Div para controlar a visibilidade -->
+            <div class="form-group">
+                <label for="descricao">Descrição do Foco</label>
+                <textarea id="descricao" rows="4" placeholder="Descreva onde e o que você encontrou (ex: pneu com água no quintal)"></textarea>
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="localizacao">Localização</label>
             <div id="localizacao-info">Localização atual: <span id="latitude"></span>, <span id="longitude"></span></div>
@@ -46,6 +48,7 @@
 
         <button id="enviar-foco">Registrar Foco</button>
         <a href="foco.html"><button class="botao-foco-registrado">Focos de Dengue Registrados</button></a>
+        <a href="orientacoes.html"><button class="botao-orientacoes">Orientações sobre a Dengue</button></a>
 
         <section id="lembretes-section">
             <h2>Lembretes de Verificação</h2>
