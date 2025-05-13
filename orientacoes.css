@@ -142,3 +142,14 @@ a {
     margin-bottom: 10px;
     color: #555;
 }
+
+/* Estilos para telas menores (celulares) */
+@media (max-width: 600px) {
+    .container-orientacoes button {
+        display: block; /* Faz os botões ocuparem a largura total da linha */
+        width: 100%; /* Garante que ocupem 100% da largura do container */
+        margin-right: 0; /* Remove a margem à direita */
+        margin-bottom: 10px; /* Adiciona uma margem abaixo de cada botão */
+        text-align: center; /* Centraliza o texto dentro do botão */
+    }
+}
