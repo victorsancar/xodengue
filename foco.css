@@ -200,6 +200,6 @@
     }
     .botoes{
         flex-direction: wrap;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 }
