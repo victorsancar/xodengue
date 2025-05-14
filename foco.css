@@ -197,9 +197,7 @@
         font-size: 0.8em;
         padding: 10px;
         border-radius: 5px;
-    }
-    .botoes{
-        flex-direction: wrap;
-        justify-content: space-around;
+        display: flex;
+        gap: 10px;
     }
 }
