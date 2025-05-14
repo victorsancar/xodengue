@@ -149,14 +149,9 @@ button:hover {
 /* {
 
     /* background-color: #546e7a; */
-*/
 
-.form-group p > button {
-    width: auto;
-    display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 10px; /* Espaçamento para telas menores */
-}
+
+
 
 /* Estilos específicos para a página de focos */
 #lista-focos {
