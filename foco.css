@@ -168,8 +168,6 @@
     .botoes{
         flex-direction: wrap;
         justify-content: space-between;
-        margin-right: 10px;
-        
     }
 
 }
@@ -201,7 +199,7 @@
     textarea,
     input[type="text"],
     button {
-        font-size: 1em;
+        font-size: 0.4em;
         padding: 10px;
         border-radius: 5px;
     }
