@@ -11,16 +11,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
    function inicializarMapa() {
     if (mapaContainer) {
-        meuMapa = L.map('mapa-container').setView([-23.5505, -46.6333], 13);
+        meuMapa = L.map('mapa-container', {
+            minZoom: 5,
+            maxZoom: 18,
+            zoomControl: true,
+            iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
+            iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+            shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png'
+        });
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(meuMapa);
-        meuMapa.invalidateSize(); // Adicione esta linha
-        exibirFocosNoMapa(focos);
+
+        let latitudes = [];
+        let longitudes = [];
+
+        focos.forEach(foco => {
+            if (foco.latitude && foco.longitude) {
+                latitudes.push(parseFloat(foco.latitude));
+                longitudes.push(parseFloat(foco.longitude));
+                L.marker([parseFloat(foco.latitude), parseFloat(foco.longitude)])
+                    .addTo(meuMapa)
+                    .bindPopup(`<strong>Foco Registrado</strong><br>Categoria: ${foco.categoria || 'Não especificada'}${foco.descricao ? `<br>Descrição: ${foco.descricao}` : ''}${foco.detalheLocalizacao ? `<br>Detalhe: ${foco.detalheLocalizacao}` : ''}`);
+            }
+        });
+
+        if (latitudes.length > 0) {
+            const latMedia = latitudes.reduce((sum, lat) => sum + lat, 0) / latitudes.length;
+            const lonMedia = longitudes.reduce((sum, lon) => sum + lon, 0) / longitudes.length;
+            meuMapa.setView([latMedia, lonMedia], 13); // Nível de zoom inicial, ajuste conforme necessário
+        } else {
+            meuMapa.setView([-23.5505, -46.6333], 10); // Define um centro padrão se não houver focos
+        }
+
+        meuMapa.invalidateSize();
     } else {
         console.error('Container do mapa não encontrado.');
     }
 }
+
+// Remove o setTimeout, pois agora centralizamos dinamicamente
+inicializarMapa();
 
     // Adiciona um pequeno atraso antes de inicializar o mapa
     setTimeout(inicializarMapa, 100); // 100 milissegundos de atraso

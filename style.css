@@ -463,4 +463,26 @@ button:hover {
     #localizacao-info {
         font-size: 1em;
     }
+
+    /* Estilos para os botões na parte inferior */
+.container > button { /* Aplica a todos os botões diretamente dentro do container */
+    display: inline-block; /* Faz os botões ficarem lado a lado */
+    margin-right: 10px; /* Espaço entre os botões */
+    margin-bottom: 10px; /* Espaço abaixo dos botões se quebrarem para a próxima linha */
+    width: auto; /* Ajusta a largura ao conteúdo */
+}
+
+/* Se você quiser uma largura igual para ambos os botões */
+.container > button {
+    /* ... outros estilos ... */
+    flex-grow: 1; /* Faz os botões ocuparem o espaço disponível igualmente */
+}
+
+.container {
+    /* ... outros estilos do container ... */
+    display: flex; /* Habilita o flexbox para os filhos diretos */
+    flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha em telas menores */
+    justify-content: flex-start; /* Alinha os botões à esquerda */
+    /* justify-content: space-around; /* Ou space-between para distribuir o espaço */
+}
 }
