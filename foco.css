@@ -150,8 +150,8 @@
     textarea,
     input[type="text"],
     button {
-        font-size: 1em;
-        padding: 12px;
+        font-size: 0.9em;
+        padding: 10px;
         border-radius: 6px;
     }
 
