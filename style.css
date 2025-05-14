@@ -462,5 +462,11 @@ button:hover {
 
     #localizacao-info {
         font-size: 1em;
-    }  
+    } 
+    
+    .secao-botoes {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
 }
