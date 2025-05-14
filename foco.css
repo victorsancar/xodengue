@@ -168,7 +168,7 @@
         font-size: 1em;
     } 
     .secao-botoes{
-        display: flex;
+        display: block;
         justify-content: space-between;
         margin-top: 20px;
     }
