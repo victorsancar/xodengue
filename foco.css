@@ -155,7 +155,7 @@
         border-radius: 6px;
         border: 1px solid #ccc;
         width: 100%;
-        margin-top: 3%;
+        margin-bottom: 10px;
     }
 
     .form-group > button {
@@ -167,12 +167,4 @@
     #localizacao-info {
         font-size: 1em;
     } 
-    
-     .botao-foco-registrado, #tirar-foto, #obter-localizacao, #enviar-foco{
-    font-weight: 600;
-    height: 3rem;
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 2em;
-}
 }
