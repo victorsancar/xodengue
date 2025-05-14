@@ -168,5 +168,176 @@
     #localizacao-info {
         font-size: 1em;
     }
-     
+
+}/* Estilos específicos para a página de focos */
+#lista-focos {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+#lista-focos h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+#focos-list {
+    list-style: none;
+    padding: 0;
+}
+
+#focos-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#focos-list li img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+#focos-list li span {
+    flex-grow: 1;
+}
+
+#focos-list li .data-registro {
+    font-size: 0.8em;
+    color: #777;
+    margin-left: 10px;
+}
+
+#mapa-focos {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+#mapa-focos h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+#mapa-container {
+    position: relative; /* Para posicionar os marcadores no mapa */
+}
+
+.marcador-foco {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.7); /* Vermelho semitransparente */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.marcador-foco:hover::before {
+    content: attr(data-descricao);
+    position: absolute;
+    left: 15px;
+    top: -5px;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    z-index: 11;
+}
+
+/* Estilos específicos para a página de focos (adicionando detalhes do foco) */
+#detalhe-foco {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+#detalhe-foco h3 {
+    color: #333;
+    margin-top: 0;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#detalhe-foco p {
+    margin-bottom: 10px;
+}
+
+#focos-list li {
+    cursor: pointer; /* Indica que o item é clicável */
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 30px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 1.1em;
+    }
+
+    input[type="file"],
+    textarea,
+    input[type="text"],
+    button {
+        font-size: 1.2em;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-group > button {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    #localizacao-info {
+        font-size: 1em;
+    }
+
 }
