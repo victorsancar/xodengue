@@ -121,6 +121,12 @@
     justify-content: space-between;
     margin-top: 20px;
 }
+/* Estilos para os botões na parte inferior (um abaixo do outro) */
+.container > button { /* Aplica a todos os botões diretamente dentro do container */
+    display: block; /* Faz cada botão ocupar uma linha inteira */
+    width: 100%; /* Faz os botões terem a largura total do container */
+    margin-bottom: 10px; /* Adiciona um espaço abaixo de cada botão */
+}
 
 
 
@@ -169,10 +175,5 @@
     #localizacao-info {
         font-size: 1em;
     }
-    /* Estilos para os botões na parte inferior (um abaixo do outro) */
-.container > button { /* Aplica a todos os botões diretamente dentro do container */
-    display: block; /* Faz cada botão ocupar uma linha inteira */
-    width: 100%; /* Faz os botões terem a largura total do container */
-    margin-bottom: 10px; /* Adiciona um espaço abaixo de cada botão */
-} 
+     
 }
