@@ -40,7 +40,7 @@ p {
 
 /* h3 {
     text-align: center;
-    color: #1e88e5; /* Azul mais tecnológico 
+    color: #1e88e5; /* Azul mais tecnológico
     margin-bottom: 25px;
     font-weight: 600;
 } */
@@ -98,6 +98,9 @@ button {
     font-size: 16px;
     transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block; /* Coloca os botões em linhas separadas por padrão */
+    width: 100%; /* Ocupam a largura total */
+    margin-bottom: 10px; /* Espaço entre os botões */
 }
 
 .botao-foco-registrado, #tirar-foto, #obter-localizacao, #enviar-foco{
@@ -122,7 +125,7 @@ button:hover {
     background-color: #009688; /* Verde mais escuro ao passar o mouse */
     transform: translateY(-2px); /* Pequeno efeito de elevação */
 }
- 
+
 #localizacao-info {
     margin-bottom: 20px;
     color: #777;
@@ -130,9 +133,9 @@ button:hover {
 }
 
 /* #obter-localizacao {
-    background-color: #1e88e5; /* Azul tecnológico 
+    background-color: #1e88e5; /* Azul tecnológico
     margin-right: 15px;
- */
+*/
 
 #obter-localizacao:hover {
     background-color: #009688; /* Verde mais escuro ao passar o mouse */
@@ -140,11 +143,11 @@ button:hover {
 }
 
 /* #tirar-foto {
-    background-color: #78909c; /* Cinza azulado neutro 
+    background-color: #78909c; /* Cinza azulado neutro
 } */
 
- /* {
-    
+/* {
+
     /* background-color: #546e7a; */
 */
 
@@ -354,8 +357,8 @@ button:hover {
 }
 
 #lembretes-section button:hover {
-   background-color: #009688; /* Verde mais escuro ao passar o mouse */
-   transform: translateY(-2px); /* Pequeno efeito de elevação */
+    background-color: #009688; /* Verde mais escuro ao passar o mouse */
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
 }
 
 #lista-lembretes {
@@ -397,31 +400,31 @@ button:hover {
 /* pagina orientações da dengue */
 
 .container-orientacoes {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .secao-orientacao {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-        }
+.secao-orientacao {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
 
-        .secao-orientacao h2, .secao-orientacao h3 {
-            color: #333;
-            margin-top: 0;
-        }
+.secao-orientacao h2, .secao-orientacao h3 {
+    color: #333;
+    margin-top: 0;
+}
 
-        .secao-orientacao:last-child {
-            border-bottom: none;
-        }
+.secao-orientacao:last-child {
+    border-bottom: none;
+}
 
 /* Estilos para telas menores */
-@media (max-width: 780px) {
+@media (max-width: 480px) {
     .container {
         padding: 30px;
         border-radius: 12px;
@@ -452,6 +455,10 @@ button:hover {
         font-size: 1.1em;
         padding: 12px;
         border-radius: 6px;
+        border: 1px solid #ccc;
+        width: 100%;
+        margin-bottom: 10px;
+        display: block; /* Garante que os botões fiquem um abaixo do outro em telas pequenas */
     }
 
     .form-group > button {
@@ -462,11 +469,5 @@ button:hover {
 
     #localizacao-info {
         font-size: 1em;
-    } 
-    
-    .secao-botoes {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
     }
 }
