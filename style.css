@@ -421,7 +421,7 @@ button:hover {
         }
 
 /* Estilos para telas menores */
-@media (max-width: 480px) {
+@media (max-width: 780px) {
     .container {
         padding: 30px;
         border-radius: 12px;
@@ -463,12 +463,4 @@ button:hover {
     #localizacao-info {
         font-size: 1em;
     }  
-
-    .botao-foco-registrado, #tirar-foto, #obter-localizacao, #enviar-foco{
-    font-weight: 600;
-    height: 3rem;
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 2em;
-}
 }

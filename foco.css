@@ -167,9 +167,4 @@
     #localizacao-info {
         font-size: 1em;
     } 
-    .secao-botoes{
-        display: block;
-        justify-content: space-between;
-        margin-top: 20px;
-    }
 }
