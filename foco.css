@@ -265,24 +265,6 @@
         font-size: 1.1em;
     }
 
-    input[type="file"],
-    textarea,
-    input[type="text"],
-    button {
-        font-size: 1.2em;
-        padding: 12px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .form-group > button {
-        width: 100%;
-        margin-bottom: 10px;
-        margin-right: 0;
-    }
-
     #localizacao-info {
         font-size: 1em;
     }
