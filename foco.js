@@ -1,40 +1,49 @@
 // foco.js
-// Este arquivo contém o código JavaScript para a página de exibição de focos registrados.
+// Este arquivo contém o código JavaScript para a página de exibição de focos registrados usando Leaflet.
 document.addEventListener('DOMContentLoaded', () => {
     const focosList = document.getElementById('focos-list');
     const nenhumFocoMensagem = document.getElementById('nenhum-foco');
     const mapaContainer = document.getElementById('mapa-container');
-    const detalheFocoSection = document.getElementById('detalhe-foco');
-    const detalheDescricaoSpan = document.getElementById('detalhe-descricao');
-    const detalheDataSpan = document.getElementById('detalhe-data');
-    const detalheCategoriaSpan = document.getElementById('detalhe-categoria');
-    const detalheLatitudeSpan = document.getElementById('detalhe-latitude');
-    const detalheLongitudeSpan = document.getElementById('detalhe-longitude');
-    const detalheLocalizacaoDetalheSpan = document.getElementById('detalhe-detalhe-localizacao');
-    const filtroCategoriaSelect = document.getElementById('filtro-categoria'); // Obtenha o select de filtro
-    const compartilharDadosBotao = document.getElementById('compartilhar-dados'); // Obtenha o botão de compartilhar
 
+    let meuMapa;
     let focosRegistrados = localStorage.getItem('focosRegistrados');
     let focos = focosRegistrados ? JSON.parse(focosRegistrados) : [];
-    exibirFocos(focos); // Exibe todos os focos inicialmente
 
-    filtroCategoriaSelect.addEventListener('change', () => {
-        const categoriaSelecionada = filtroCategoriaSelect.value;
-        const focosFiltrados = focos.filter(foco => {
-            return categoriaSelecionada === '' || foco.categoria === categoriaSelecionada;
-        });
-        exibirFocos(focosFiltrados); // Exibe os focos filtrados
-    });
+   function inicializarMapa() {
+    if (mapaContainer) {
+        meuMapa = L.map('mapa-container').setView([-23.5505, -46.6333], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(meuMapa);
+        meuMapa.invalidateSize(); // Adicione esta linha
+        exibirFocosNoMapa(focos);
+    } else {
+        console.error('Container do mapa não encontrado.');
+    }
+}
 
-    compartilharDadosBotao.addEventListener('click', () => {
-        const dadosParaCompartilhar = localStorage.getItem('focosRegistrados');
-        alert('Dados dos focos registrados:\n\n' + dadosParaCompartilhar);
-        // No mundo real, aqui você enviaria esses dados para um servidor.
-    });
+    // Adiciona um pequeno atraso antes de inicializar o mapa
+    setTimeout(inicializarMapa, 100); // 100 milissegundos de atraso
 
-    function exibirFocos(listaDeFocos) {
+    function exibirFocosNoMapa(listaDeFocos) {
+        if (meuMapa) {
+            meuMapa.eachLayer(layer => {
+                if (layer instanceof L.Marker) {
+                    meuMapa.removeLayer(layer);
+                }
+            });
+            listaDeFocos.forEach(foco => {
+                if (foco.latitude && foco.longitude) {
+                    L.marker([parseFloat(foco.latitude), parseFloat(foco.longitude)])
+                        .addTo(meuMapa)
+                        .bindPopup(`<strong>Foco Registrado</strong><br>Categoria: ${foco.categoria || 'Não especificada'}${foco.descricao ? `<br>Descrição: ${foco.descricao}` : ''}${foco.detalheLocalizacao ? `<br>Detalhe: ${foco.detalheLocalizacao}` : ''}`);
+                }
+            });
+        }
+    }
+
+    function exibirFocosNaLista(listaDeFocos) {
         focosList.innerHTML = '';
-        mapaContainer.innerHTML = '<img src="img/mapasaopaulo.jpg" alt="Mapa de São Paulo" style="width: 100%; border: 1px solid #ccc; border-radius: 8px;">'; // Limpa os marcadores antigos
         if (listaDeFocos.length > 0) {
             nenhumFocoMensagem.style.display = 'none';
             listaDeFocos.forEach((foco, index) => {
@@ -46,28 +55,47 @@ document.addEventListener('DOMContentLoaded', () => {
                     exibirDetalheFoco(foco);
                 });
                 focosList.appendChild(listItem);
-
-                if (foco.latitude && foco.longitude && mapaContainer) {
-                    const marcador = document.createElement('div');
-                    marcador.classList.add('marcador-foco');
-                    marcador.style.left = `${((parseFloat(foco.longitude) + 180) / 360) * mapaContainer.offsetWidth}px`;
-                    marcador.style.top = `${((90 - parseFloat(foco.latitude)) / 180) * mapaContainer.offsetHeight}px`;
-                    marcador.setAttribute('data-descricao', `${foco.descricao} (${dataRegistroFormatada})`);
-                    mapaContainer.appendChild(marcador);
-                }
             });
         } else {
             nenhumFocoMensagem.style.display = 'block';
         }
     }
 
+    exibirFocosNaLista(focos); // Exibe a lista de focos inicialmente
+
+    const filtroCategoriaSelect = document.getElementById('filtro-categoria');
+    filtroCategoriaSelect.addEventListener('change', () => {
+        const categoriaSelecionada = filtroCategoriaSelect.value;
+        const focosFiltrados = focos.filter(foco => {
+            return categoriaSelecionada === '' || foco.categoria === categoriaSelecionada;
+        });
+        exibirFocosNoMapa(focosFiltrados);
+        exibirFocosNaLista(focosFiltrados);
+    });
+
+    const compartilharDadosBotao = document.getElementById('compartilhar-dados');
+    compartilharDadosBotao.addEventListener('click', () => {
+        const dadosParaCompartilhar = localStorage.getItem('focosRegistrados');
+        alert('Dados dos focos registrados:\n\n' + dadosParaCompartilhar);
+    });
+
     function exibirDetalheFoco(foco) {
+        const detalheDescricaoSpan = document.getElementById('detalhe-descricao');
+        const detalheDataSpan = document.getElementById('detalhe-data');
+        const detalheCategoriaSpan = document.getElementById('detalhe-categoria');
+        const detalheLatitudeSpan = document.getElementById('detalhe-latitude');
+        const detalheLongitudeSpan = document.getElementById('detalhe-longitude');
+        const detalheLocalizacaoDetalheSpan = document.getElementById('detalhe-detalhe-localizacao');
+
         detalheDescricaoSpan.textContent = foco.descricao;
         detalheDataSpan.textContent = new Date(foco.dataRegistro).toLocaleString();
         detalheCategoriaSpan.textContent = foco.categoria || 'Não especificada';
         detalheLatitudeSpan.textContent = foco.latitude || 'Não disponível';
         detalheLongitudeSpan.textContent = foco.longitude || 'Não disponível';
         detalheLocalizacaoDetalheSpan.textContent = foco.detalheLocalizacao || 'Não disponível';
-        detalheFocoSection.style.display = 'block';
+        const detalheFocoSection = document.getElementById('detalhe-foco');
+        if (detalheFocoSection) {
+            detalheFocoSection.style.display = 'block';
+        }
     }
 });

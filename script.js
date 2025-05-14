@@ -8,19 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const enviarFocoBotao = document.getElementById('enviar-foco');
     const descricaoInput = document.getElementById('descricao');
     const detalheLocalizacaoInput = document.getElementById('detalhe-localizacao');
-    const categoriaSelect = document.getElementById('categoria'); // Obtenha o elemento select de categoria
-    const descricaoContainer = document.getElementById('descricao-container'); // Obtenha o container da descrição
+    const categoriaSelect = document.getElementById('categoria');
+    const descricaoContainer = document.getElementById('descricao-container');
 
-    // Funcionalidade para mostrar/ocultar a descrição com base na categoria
+    // Elementos para lembretes
+    const localLembreteInput = document.getElementById('local-lembrete');
+    const frequenciaLembreteSelect = document.getElementById('frequencia-lembrete');
+    const horaLembreteInput = document.getElementById('hora-lembrete');
+    const adicionarLembreteBotao = document.getElementById('adicionar-lembrete');
+    const listaLembretesUl = document.getElementById('lista-lembretes');
+
+    let lembretes = localStorage.getItem('lembretes');
+    lembretes = lembretes ? JSON.parse(lembretes) : [];
+    exibirLembretes();
+    agendarLembretes();
+
     categoriaSelect.addEventListener('change', () => {
-        if (categoriaSelect.value === 'outro') {
-            descricaoContainer.style.display = 'block';
-        } else {
-            descricaoContainer.style.display = 'none';
-        }
+        descricaoContainer.style.display = categoriaSelect.value === 'outro' ? 'block' : 'none';
     });
 
-    // Funcionalidade de obter localização
     obterLocalizacaoBotao.addEventListener('click', () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -37,26 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Funcionalidade de tirar foto (simula clique no input file)
     tirarFotoBotao.addEventListener('click', () => {
         inputFileFoto.click();
     });
 
-    // Log para verificar o arquivo de foto selecionado
     inputFileFoto.addEventListener('change', (event) => {
         if (event.target.files && event.target.files[0]) {
             console.log('Foto selecionada:', event.target.files[0]);
         }
     });
 
-    // Funcionalidade de registrar foco (armazenamento local)
     enviarFocoBotao.addEventListener('click', () => {
         const latitude = latitudeSpan.textContent;
         const longitude = longitudeSpan.textContent;
         const descricao = descricaoInput.value;
         const detalheLocalizacao = detalheLocalizacaoInput.value;
         const foto = inputFileFoto.files[0];
-        const categoria = categoriaSelect.value; // Obtém o valor da categoria
+        const categoria = categoriaSelect.value;
 
         const focoData = {
             latitude: latitude,
@@ -65,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             detalheLocalizacao: detalheLocalizacao,
             dataRegistro: new Date().toISOString(),
             temFoto: !!foto,
-            categoria: categoria // Inclui a categoria nos dados do foco
+            categoria: categoria
         };
 
         let focos = localStorage.getItem('focosRegistrados');
@@ -80,23 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
         inputFileFoto.value = '';
         latitudeSpan.textContent = '';
         longitudeSpan.textContent = '';
-        categoriaSelect.value = ''; // Reseta a seleção da categoria
-        descricaoContainer.style.display = 'none'; // Oculta a descrição após o registro
+        categoriaSelect.value = '';
+        descricaoContainer.style.display = 'none';
     });
 
-    // Elementos para lembretes
-    const localLembreteInput = document.getElementById('local-lembrete');
-    const frequenciaLembreteSelect = document.getElementById('frequencia-lembrete');
-    const horaLembreteInput = document.getElementById('hora-lembrete');
-    const adicionarLembreteBotao = document.getElementById('adicionar-lembrete');
-    const listaLembretesUl = document.getElementById('lista-lembretes');
-
-    // Carregar lembretes existentes do localStorage
-    let lembretes = localStorage.getItem('lembretesDengue');
-    lembretes = lembretes ? JSON.parse(lembretes) : [];
-    exibirLembretes();
-
-    // Funcionalidade de adicionar lembrete
     adicionarLembreteBotao.addEventListener('click', () => {
         const local = localLembreteInput.value.trim();
         const frequencia = frequenciaLembreteSelect.value;
@@ -109,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 hora: hora
             };
             lembretes.push(novoLembrete);
-            localStorage.setItem('lembretesDengue', JSON.stringify(lembretes));
+            localStorage.setItem('lembretes', JSON.stringify(lembretes));
             exibirLembretes();
             localLembreteInput.value = '';
             horaLembreteInput.value = '';
@@ -118,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Funcionalidade para exibir lembretes
     function exibirLembretes() {
         listaLembretesUl.innerHTML = '';
         lembretes.forEach((lembrete, index) => {
@@ -127,24 +116,22 @@ document.addEventListener('DOMContentLoaded', () => {
             listaLembretesUl.appendChild(listItem);
         });
 
-        // Adicionar funcionalidade de remover lembrete
         const botoesRemover = document.querySelectorAll('.remover-lembrete');
         botoesRemover.forEach(botao => {
             botao.addEventListener('click', function() {
                 const id = parseInt(this.dataset.id);
                 lembretes.splice(id, 1);
-                localStorage.setItem('lembretesDengue', JSON.stringify(lembretes));
+                localStorage.setItem('lembretes', JSON.stringify(lembretes));
                 exibirLembretes();
             });
         });
     }
 
-    // Funcionalidade para agendar lembretes (roda apenas quando a página está aberta)
     function agendarLembretes() {
         setInterval(() => {
             const now = new Date();
             const horaAtual = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-            const diaSemana = now.getDay(); // 0 (Domingo) - 6 (Sábado)
+            const diaSemana = now.getDay();
 
             lembretes.forEach(lembrete => {
                 if (lembrete.hora === horaAtual) {
@@ -152,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (Notification.permission === 'granted') {
                             new Notification('Xô Dengue!', {
                                 body: `Lembrete para verificar: ${lembrete.local}`,
-                                icon: 'icone-notificacao.png' // Opcional: um ícone para a notificação
+                                icon: 'icone-notificacao.png'
                             });
                         } else if (Notification.permission !== 'denied') {
                             Notification.requestPermission().then(permission => {
@@ -167,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-        }, 60000); // Verifica a cada minuto
+        }, 60000);
     }
 
-    agendarLembretes(); // Inicia o agendamento de lembretes
+    agendarLembretes();
 });
