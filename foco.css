@@ -121,3 +121,81 @@
     justify-content: space-between;
     margin-top: 20px;
 }
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    h3 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 1.1em;
+    }
+
+    input[type="file"],
+    textarea,
+    input[type="text"],
+    button {
+        font-size: 1em;
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    .form-group > button {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    #localizacao-info {
+        font-size: 1em;
+    }
+
+    
+}@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 1.2em;
+    }
+
+    input[type="file"],
+    textarea,
+    input[type="text"],
+    button {
+        font-size: 1em;
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
