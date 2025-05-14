@@ -168,6 +168,7 @@
     .botoes{
         flex-direction: wrap;
         justify-content: space-between;
+        margin-right: 10px;
         
     }
 
