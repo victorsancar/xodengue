@@ -164,13 +164,8 @@
     #localizacao-info {
         font-size: 1em;
     }
-
-    .botoes{
-        flex-direction: wrap;
-        justify-content: space-between;
-    }
-
 }
+
     @media (max-width: 768px) {
     .container {
         padding: 20px;
@@ -202,5 +197,9 @@
         font-size: 0.8em;
         padding: 10px;
         border-radius: 5px;
+    }
+    .botoes{
+        flex-direction: wrap;
+        justify-content: space-between;
     }
 }
