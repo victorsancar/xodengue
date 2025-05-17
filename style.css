@@ -10,6 +10,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     color: #333; /* Cor de texto mais neutra */
+    backgraund-color: black;
 }
 
 .container {
